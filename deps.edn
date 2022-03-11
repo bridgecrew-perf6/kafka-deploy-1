@@ -1,0 +1,25 @@
+{:paths ["src" "resources"]
+ :deps  {org.apache.kafka/kafka_2.13 {:mvn/version "3.1.0"
+                                      :exclusions  [log4j/log4j
+                                                    org.slf4j/slf4j-log4j12]}
+         org.slf4j/log4j-over-slf4j  {:mvn/version "1.7.36"}
+         ch.qos.logback/logback-classic    {:mvn/version "1.2.3"}}
+ :aliases
+ {:run-m        {:main-opts ["-m" "kafka-deploy.kafka-deploy"]}
+  :run-x        {:ns-default kafka-deploy.kafka-deploy
+                 :exec-fn    greet
+                 :exec-args  {:name "Clojure"}}
+  :build        {:deps       {io.github.juxt/pack.alpha {:git/sha "9fd4a63ddeec3bedcbc819422de5a40ccb9eb8c9"}
+
+                              }
+                 :ns-default build}
+  :build-config {:extra-paths ["config" "production-resources"]
+                 :extra-deps  {com.github.ankurcha/google-cloud-logging-logback-slf4j #:mvn{:version "1.1.11"}}
+                 :main-opts   ["-m" "com.breezeehr.reports.non-billed-encounters"]}
+  :test         {:extra-paths ["test"]
+                 :extra-deps  {org.clojure/test.check {:mvn/version "1.1.1"}
+                               io.github.cognitect-labs/test-runner
+                               {:git/tag "v0.5.0" :git/sha "48c3c67"}}}
+  :dev          {:extra-paths ["src"]
+                 :extra-deps  {org.clojure/clojure                                    {:mvn/version "1.10.3"}
+                               com.github.ankurcha/google-cloud-logging-logback-slf4j #:mvn{:version "1.1.11"}}}}}
