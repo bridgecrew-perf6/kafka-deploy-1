@@ -1,9 +1,9 @@
 {:main         "main"
  :aliases       [:build-config]
  :git-url      "https://github.com"
- :entrypoint   {:fn 'jibbit.core/raw-java-entrypoint}
+ :entrypoint   {:fn jibbit.core/raw-java-entrypoint :args [] :main "kafka.Kafka"}
  :base-image   {:image-name "gcr.io/distroless/java"
                 :type       :registry}
  :target-image {:image-name "gcr.io/breezeehr.com/breeze-ehr/distroless-kafka-test"
-                :authorizer {:fn 'jibbit.gcloud/authorizer}
+                :authorizer {:fn jibbit.gcloud/authorizer}
                 :type       :registry}}
