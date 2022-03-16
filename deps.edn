@@ -9,7 +9,9 @@
   :run-x        {:ns-default kafka-deploy.kafka-deploy
                  :exec-fn    greet
                  :exec-args  {:name "Clojure"}}
-  :build        {:deps       {io.github.dspiteself/jibbit #_{:local/root "../jibbit"} {:git/sha "a741b680d89ce8c1e066d1ee98f30545774273b0"}}
+  :build        {:deps       {io.github.atomisthq/jibbit #_{:local/root "../jibbit"}
+                              {:git/url "https://github.com/dspiteself/jibbit.git"
+                               :git/sha "a741b680d89ce8c1e066d1ee98f30545774273b0"}}
                  :ns-default build}
   :build-config {:extra-paths ["config" "production-resources"]
                  :extra-deps  {com.github.ankurcha/google-cloud-logging-logback-slf4j #:mvn{:version "1.1.11"}}
