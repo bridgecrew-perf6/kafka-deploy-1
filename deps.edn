@@ -11,7 +11,7 @@
                  :exec-args  {:name "Clojure"}}
   :build        {:deps       {io.github.atomisthq/jibbit #_{:local/root "../jibbit"}
                               {:git/url "https://github.com/dspiteself/jibbit.git"
-                               :git/sha "a741b680d89ce8c1e066d1ee98f30545774273b0"}}
+                               :git/sha "88a022ff55f6adddfffc2758f71154b502c0bdd2"}}
                  :ns-default build}
   :build-config {:extra-paths ["config" "production-resources"]
                  :extra-deps  {com.github.ankurcha/google-cloud-logging-logback-slf4j #:mvn{:version "1.1.11"}}
